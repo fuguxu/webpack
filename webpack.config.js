@@ -1,4 +1,5 @@
 let path = require('path')
+let FileList = require('./plugins/fileList.js')
 module.exports = {
   mode:'development',
   entry:'./src/index.js',
@@ -14,6 +15,11 @@ module.exports = {
     //   'url-loader': path.resolve(__dirname,'loaders/url-loader.js'),
     // }
   },
+  plugins:[
+    new FileList({
+      fileName:'list.md'
+    })
+  ],
   module:{
     rules:[
       {
