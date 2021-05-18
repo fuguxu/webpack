@@ -1,7 +1,8 @@
 let path = require('path')
 let FileList = require('./plugins/fileList.js')
+let MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
-  mode:'development',
+  mode:'production',
   entry:'./src/index.js',
   output:{
     filename:'index.js',
@@ -18,6 +19,9 @@ module.exports = {
   plugins:[
     new FileList({
       fileName:'list.md'
+    }),
+    new MiniCssExtractPlugin({
+      fileName:'css/[name].css'
     })
   ],
   module:{
@@ -37,7 +41,10 @@ module.exports = {
       {
         test:/\.less$/,
         use:[
-          'style-loader','css-loader','less-loader'
+          MiniCssExtractPlugin.loader,
+          // 'style-loader',
+          'css-loader',
+          'less-loader'
         ]
       }
     ]
