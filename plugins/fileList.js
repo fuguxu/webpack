@@ -5,7 +5,6 @@ class fileList{
   apply(compiler){
     compiler.hooks.emit.tap('fileList', (compilation) => {
       let assets = compilation.assets ;
-      console.log(assets['index.js'].size())
       let content = '# 文件名称   文件大小\r\n'
       Object.entries(assets).forEach(([fileName,statObj]) =>{
         content += `- ${fileName}    ${statObj.size()}\r\n`

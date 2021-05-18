@@ -1,8 +1,9 @@
 node_modules
 # build
+dist
 zip
 assets
-# dist
+dist
 .idea
 npm-debug.log
 .vscode

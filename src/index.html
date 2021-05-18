@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+    .c {
+      background-color: #000;
+    }
+    .b{
+      width: 50px;
+      height: 50px;
+      margin: 20px;
+      float: left;
+      background-color: red;
+    }
+    .two {
+      width: 200px;
+      height: 100px;
+      border:1px solid #000;
+    }
+    .trangle {
+      margin:30px auto;
+      width: 0;
+      border: solid;
+      border-color:red yellow blue black;
+      border-width: 50px 50px 50px 50px;
+    }
+    .parent {
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    /* .parent::after{
+      display: inline-block;
+      content: '';
+      height: 100%;
+      vertical-align:middle;
+    } */
+    .child{
+      width: 70px;
+      height: 30px;
+      border: 1px solid black;
+      /* float: left; */
+    }
+  </style>
+</head>
+<body>
+   <div class="c">
+    <div class="b"></div>
+    <div class="b"></div>
+  </div> 
+  <div style="float: left;" class="two">
+    两栏布局两栏布局两栏布局两栏布局两栏布局两栏布局两栏布局两栏布局两栏布局两栏布局两栏布局两栏布局两栏布局
+</div>
+<div style="width: 300px;display:flex;" class="two">
+    我是蛙人，如有帮助请点个赞叭，如有帮助请点个赞叭，如有帮助请点个赞叭，如有帮助请点个赞叭，如有帮助请点个赞叭，如有帮助请点个赞叭
+</div>
+<div class="trangle"></div>
+
+<div class="parent">
+  <div class="child">A</div>
+  <div class="child">B</div>
+  <div class="child">C</div>
+</div>
+<!-- 
+//元素垂直居中 vertical-align的含义是子元素跟父元素的基准线对其，而父元素的基准线(baseline)有一套规则，所以给个伪类来设置一下基准线,让middle正好在中间
+1) .p::after{
+  display:inline-block;
+  vertical-align:middle;
+  content:'',
+  height:100%;
+  .child {
+    display:inline-block;
+    vertical-align:middle;
+  }
+}
+// 弹性盒子布局
+2) .p {
+  display:flex;
+  align-items:cneter;
+}
+// 绝对定位
+3) p. {
+  position:relative;
+  .child {
+    position:absoult;
+    top:50%;
+    transform:translate(0,-50%);
+  }
+}
+
+
+// flex，弹性布局
+align-content: => 当容器里面的项目长度常与容器并且换行显示时，此属性会决定如何分配测轴方向上的剩余空间
+align-self: 作用在项目上的属性，多某个别的对其方式做处理
+
+// BFC 
+在html中是一个独立的容器，容器里面的元素跟外面的元素相互不干扰，影响
+让一个元素成为BFC的方法有如下：dispaly:inline-block， table-cell, flex
+position: aboulte, fixed,
+overflow:hidden; 
+float:left/right,
+
+里面的盒模型在垂直方向上一个接着一个放置
+相连2个盒的垂直间距由margin决定，并且有高度塌陷
+每个盒的左边界挨着块的左边界
+bfc元素不会与浮动元素重叠
+在计算BFC元素的宽高时包含浮动元素的宽高
+ -->
+</body>
+</html>

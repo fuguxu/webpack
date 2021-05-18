@@ -1,5 +1,7 @@
 let path = require('path')
 let FileList = require('./plugins/fileList.js')
+let InlineSourcePlugin = require('./plugins/inlineSourcePlugin.js')
+let HtmlWebpackPlugin = require('html-webpack-plugin')
 let MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
   mode:'production',
@@ -17,6 +19,16 @@ module.exports = {
     // }
   },
   plugins:[
+    new HtmlWebpackPlugin({
+      template:'./src/index.html',
+      filename: 'index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename:'index.css'
+    }),
+    new InlineSourcePlugin({ // 可以把外链资源变成内联标签
+      match:/\.css|\.js$/
+    }),
     new FileList({
       fileName:'list.md'
     }),
@@ -41,10 +53,7 @@ module.exports = {
       {
         test:/\.less$/,
         use:[
-          MiniCssExtractPlugin.loader,
-          // 'style-loader',
-          'css-loader',
-          'less-loader'
+          MiniCssExtractPlugin.loader,'css-loader','less-loader'
         ]
       }
     ]
