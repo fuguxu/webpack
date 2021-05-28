@@ -4,7 +4,7 @@ let InlineSourcePlugin = require('./plugins/inlineSourcePlugin.js')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 let MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
-  mode:'development',
+  mode:'production',
   entry:'./src/index.js',
   output:{
     filename:'index.js',
@@ -32,6 +32,9 @@ module.exports = {
     new FileList({
       fileName:'list.md'
     }),
+    new MiniCssExtractPlugin({
+      fileName:'css/[name].css'
+    })
   ],
   module:{
     rules:[
