@@ -10,13 +10,35 @@
   <div id="app">
     <input type="text" v-model="msg">
     <div>{{msg}}</div>
+    <div v-for="(item,index) in list" :key="index" @click="remove(index)">
+      <test></test>
+    </div>
+    <button @click="reverse">改变顺序</button>
   </div>
   <script src="../node_modules/vue/dist/vue.min.js"></script>
   <script>
+    var num = 1;
     let vm = new Vue({
       el:'#app',
       data:{
-        msg:'hello world'
+        msg:'hello world',
+        list:['a','b','c']
+      },
+      methods:{
+        remove(index) {
+          this.list.splice(index,1)
+        },
+        reverse(){
+          this.list.reverse()
+        }
+      },
+      components:{
+        test:{
+          data:{
+            num:1
+          },
+          template:`<span>{{Math.random()}}</span>`
+        }
       }
     })
     /*

@@ -70,6 +70,7 @@
   <div class="child">A</div>
   <div class="child">B</div>
   <div class="child">C</div>
+  <input type="file" id="file" >
 </div>
 <!-- 
 //元素垂直居中 vertical-align的含义是子元素跟父元素的基准线对其，而父元素的基准线(baseline)有一套规则，所以给个伪类来设置一下基准线,让middle正好在中间
@@ -117,4 +118,13 @@ bfc元素不会与浮动元素重叠
 在计算BFC元素的宽高时包含浮动元素的宽高
  -->
 </body>
+<script>
+  var p = document.querySelector('.parent')
+  p.style.backgroundColor = 'pink'
+  console.log(p.clientWidth)
+  p.style.backgroundColor = 'blue'
+  document.querySelector('#file').addEventListener('change',function(e){
+    console.log(e.target.files)
+  })
+</script>
 </html>
